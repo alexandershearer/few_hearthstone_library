@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Hearthstone</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <form id="form">
+            <input id="cardName" type="text" placeholder="card name" title="Please Enter a card">
+            <button type="submit">Search</button>
+        </form>
+        <img id="cardImg">
+        </h1>
+        <p id="name">
+        </p>
+    </div>
+
+    <script type="module">
+
+
+        import { getCardByName, getRandomCardFromSet } from "./index.js"
+        // Get Element refererences
+        const cardImg = document.getElementById('cardImg')
+        const name = document.getElementById('name')
+        const cardForm = document.getElementById('form')
+        const input = document.getElementById('cardName')
+
+
+        cardForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const userInput = input.value
+            const apiKey = "15f019eb87msha0428ac53c6417fp14119cjsn94b849e04cf5"
+            console.log(userInput)
+            getCardByName(apiKey, userInput)
+                .then((res) => {
+                    cardImg.src = res.img
+                    name.innerHTML = res.name
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        })
+
+
+    </script>
+</body>
+
+</html>
