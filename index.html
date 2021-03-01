@@ -8,14 +8,28 @@
 
 <body>
     <div class="container">
+        <h1>Search for any Hearthstone card!</h1>
         <form id="form">
             <input id="cardName" type="text" placeholder="card name" title="Please Enter a card">
             <button type="submit">Search</button>
         </form>
         <img id="cardImg">
-        </h1>
-        <p id="name">
-        </p>
+        <h2 id="name"></h2>
+        <h4 id="userCardSetName"></h4>
+        <h4 id="userCardType"></h4>
+        <h4 id="userCardFaction"></h4>
+    </div>
+
+    <div class="container">
+        <h1>Insert a Hearthstone set to retrieve a random card from.</h1>
+        <form id="randomSetForm">
+            <input id="setName" type="text" placeholder="set name" title="Please Enter a set name">
+            <button type="submit">Search</button>
+        </form>
+        <img id="cardSetImg">
+        <h3 id="setCardName"></h3>
+        <h4 id="setCardType"></h4>
+        <h4 id="setCardText"></h4>
     </div>
 
     <script type="module">
@@ -27,6 +41,16 @@
         const name = document.getElementById('name')
         const cardForm = document.getElementById('form')
         const input = document.getElementById('cardName')
+        const userSetName = document.getElementById('userCardSetName')
+        const userSetCardType = document.getElementById('userCardType')
+        const userCardFaction = document.getElementById('userCardFaction')
+
+        const cardSetImg = document.getElementById('cardSetImg')
+        const setCardName = document.getElementById('setCardName')
+        const randomCardForm = document.getElementById('randomSetForm')
+        const setInput = document.getElementById('setName')
+        const setCardType = document.getElementById('setCardType')
+        const setCardText = document.getElementById('setCardText')
 
 
         cardForm.addEventListener('submit', (e) => {
@@ -38,6 +62,26 @@
                 .then((res) => {
                     cardImg.src = res.img
                     name.innerHTML = res.name
+                    userSetName.innerHTML = res.cardSet
+                    userSetCardType.innerHTML = res.type
+                    userCardFaction.innerHTML = res.faction
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        })
+
+        randomCardForm.addEventListener('submit', (e) => {
+            e.preventDefault()
+            const setUserInput = setInput.value
+            const apiKey = "15f019eb87msha0428ac53c6417fp14119cjsn94b849e04cf5"
+
+            getRandomCardFromSet(apiKey, setUserInput)
+                .then((res) => {
+                    cardSetImg.src = res.img
+                    setCardName.innerHTML = res.name
+                    setCardType.innerHTML = res.type
+                    setCardText.innerHTML = res.text
                 })
                 .catch((error) => {
                     console.log(error)

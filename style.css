@@ -17,3 +17,18 @@
     max-width: 100px;
     margin: 0 auto;
 }
+
+#randomSetForm{
+    margin: 0 auto;
+    height: 60px;
+    justify-content: space-between;
+    width: 85%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column; 
+}
+
+#randomSetForm button {
+    max-width: 100px;
+    margin: 0 auto;
+}
