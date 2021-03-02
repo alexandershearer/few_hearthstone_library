@@ -1,7 +1,6 @@
 html, body{
-    background: rgb(226,226,226);
-    background: linear-gradient(180deg, rgba(226,226,226,1) 0%, rgba(255,242,69,1) 100%);
-    height: 100%;
+    background-color: rgb(255, 255, 189);
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .topImg{
@@ -41,4 +40,10 @@ html, body{
 #randomSetForm button {
     max-width: 100px;
     margin: 0 auto;
+}
+
+.setList{
+    margin: 0 auto;
+    width: 85%;
+    padding-bottom: 20px;
 }
