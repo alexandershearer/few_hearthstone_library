@@ -1,5 +1,5 @@
 {
-  "name": "hearthstone_api_lib",
+  "name": "@alex.shearer/hearthstone_api_lib",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
